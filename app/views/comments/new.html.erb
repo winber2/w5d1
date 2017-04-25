@@ -1,0 +1,10 @@
+<h1>NEW COMMENT!</h1>
+
+<form action="<%= post_comments_url %>" method="post">
+  <%= auth_token %>
+
+  <label for="content">Content</label>
+  <textarea id="content" name="comment[content]" rows="8" cols="80"></textarea>
+
+  <input type="submit" name="" value="Create Post">
+</form>

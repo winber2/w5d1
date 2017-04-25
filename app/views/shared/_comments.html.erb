@@ -1,0 +1,12 @@
+<ul>
+  <% if comments = @all_comments[c.id] %>
+    <% comments.each_with_index do |comment, i| %>
+      <li><%= link_to "#{comment.content}", post_comment_url(post_id: comment.post_id, id: comment.id) %>
+        <br>
+        -- <%= comment.user.username %>
+        <%= comment.created_at %>
+      </li>
+      <%= render "shared/comments", c: comment %>
+    <% end %>
+  <% end %>
+</ul>

@@ -1,0 +1,25 @@
+<%= link_to "Back to Index", subs_url %>
+
+<h1><%= @sub.title %></h1>
+
+<p><%= @sub.description %></p>
+
+<br>
+
+<% posts = @sub.posts %>
+<%= link_to "New Post", new_post_url %>
+
+<br>
+
+<ul>
+  <% if posts %>
+    <% posts.each do |post| %>
+      <li>
+        <%= link_to "#{post.title}", post_url(post) %>
+        <% if current_user.id = @sub.moderator.id %>
+          <%= link_to "Edit Post", edit_post_url(post) %>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
